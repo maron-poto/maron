@@ -49,43 +49,45 @@
       font-size: 12px;
       letter-spacing: 0.15em;
     }
-    .nav-links a {
-      opacity: 0.6;
-      transition: opacity 0.2s;
-    }
+    .nav-links a { opacity: 0.6; transition: opacity 0.2s; }
     .nav-links a:hover { opacity: 1; }
 
-    /* ── Hero ── */
+    /* ── Hero (수정됨: 흰색 배경 및 이미지 로고) ── */
     .hero {
       height: 100vh;
-      background: #ffffff; /* 배경색을 흰색으로 변경 */
+      background: #ffffff; /* 밝은 흰색 배경 */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: #333333; /* 글자색을 어두운 회색으로 변경 */
+      color: #1a1a1a; /* 어두운 텍스트 */
       position: relative;
       overflow: hidden;
     }
+    /* 은은한 배경 디테일 (선택사항) */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 60% 40%, rgba(200,200,200,0.2) 0%, transparent 60%); /* 그라디언트 색상 조정 */
+      background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.02) 0%, transparent 70%);
     }
-    .<h1 class="hero-title">
-  <img src="./images/maron_englogo.png" alt="MARON">
-</h1>
-      max-width: 80%; /* 이미지 최대 너비 설정 */
-      height: auto; /* 이미지 비율 유지 */
-      margin-bottom: 20px; /* 서브 타이틀과의 간격 조정 */
+    .hero-title {
+      position: relative;
+      margin-bottom: 32px;
+    }
+    .hero-title img {
+      width: 280px; /* 로고의 적절한 너비 설정 */
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
     .hero-sub {
       font-size: 12px;
       letter-spacing: 0.3em;
-      opacity: 0.8; /* 투명도 조정 */
+      opacity: 0.6;
       position: relative;
+      font-weight: 400;
     }
     .hero-scroll {
       position: absolute;
@@ -98,14 +100,14 @@
       gap: 8px;
       font-size: 10px;
       letter-spacing: 0.2em;
-      opacity: 0.6; /* 투명도 조정 */
+      opacity: 0.4;
     }
     .hero-scroll::after {
       content: '';
       display: block;
       width: 1px;
       height: 40px;
-      background: #333333; /* 스크롤 선 색상 변경 */
+      background: #1a1a1a; /* 스크롤 선 색상을 어둡게 변경 */
       animation: scrollLine 1.6s ease-in-out infinite;
     }
     @keyframes scrollLine {
@@ -140,237 +142,65 @@
       gap: 80px;
       align-items: start;
     }
-    .about-text p {
-      font-size: 15px;
-      line-height: 2;
-      opacity: 0.75;
-      margin-bottom: 16px;
-    }
-    .about-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 32px;
-    }
-    .tag {
-      border: 1px solid rgba(0,0,0,0.2);
-      padding: 6px 14px;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      border-radius: 2px;
-    }
+    .about-text p { font-size: 15px; line-height: 2; opacity: 0.75; margin-bottom: 16px; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+    .tag { border: 1px solid rgba(0,0,0,0.2); padding: 6px 14px; font-size: 11px; letter-spacing: 0.1em; border-radius: 2px; }
     .about-info { padding-top: 56px; }
-    .info-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      font-size: 13px;
-    }
+    .info-row { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 13px; }
     .info-row:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
     .info-label { opacity: 0.4; min-width: 72px; font-size: 11px; letter-spacing: 0.1em; padding-top: 2px; }
 
     /* ── Services ── */
-    #services {
-      background: #f8f8f8;
-      padding: 100px 48px;
-    }
-    .services-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      background: rgba(0,0,0,0.08);
-    }
-    .service-card {
-      background: #fff;
-      padding: 40px 32px;
-      transition: background 0.2s;
-    }
+    #services { background: #f8f8f8; padding: 100px 48px; }
+    .services-inner { max-width: 1200px; margin: 0 auto; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(0,0,0,0.08); }
+    .service-card { background: #fff; padding: 40px 32px; transition: background 0.2s; }
     .service-card:hover { background: #111; color: #fff; }
-    .service-num {
-      font-family: 'Noto Sans KR', serif;
-      font-size: 36px;
-      opacity: 0.15;
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-    .service-name {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 12px;
-      letter-spacing: 0.05em;
-    }
-    .service-desc {
-      font-size: 12px;
-      opacity: 0.55;
-      line-height: 1.8;
-    }
+    .service-num { font-family: 'Noto Sans KR', serif; font-size: 36px; opacity: 0.15; line-height: 1; margin-bottom: 20px; }
+    .service-name { font-size: 15px; font-weight: 500; margin-bottom: 12px; letter-spacing: 0.05em; }
+    .service-desc { font-size: 12px; opacity: 0.55; line-height: 1.8; }
 
     /* ── Video Works ── */
-    #video {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .video-wrap {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      background: #111;
-    }
-    .video-wrap iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-    }
-    .video-caption {
-      margin-top: 12px;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      opacity: 0.45;
-    }
+    #video { max-width: 1200px; margin: 0 auto; }
+    .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #111; }
+    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .video-caption { margin-top: 12px; font-size: 11px; letter-spacing: 0.1em; opacity: 0.45; }
 
     /* ── Process ── */
-    #process {
-      background: #111;
-      color: #fff;
-      padding: 100px 48px;
-    }
-    .process-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    #process .section-title { color: #fff; }
-    #process .section-label { color: #fff; }
-    .process-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.1);
-      margin-top: 0;
-    }
-    .process-item {
-      background: #111;
-      padding: 40px 32px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .process-num {
-      font-family: 'Noto Sans KR', serif;
-      font-size: 40px;
-      opacity: 0.2;
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-    .process-name {
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    .process-desc {
-      font-size: 12px;
-      opacity: 0.45;
-      line-height: 1.8;
-    }
+    #process { background: #111; color: #fff; padding: 100px 48px; }
+    .process-inner { max-width: 1200px; margin: 0 auto; }
+    #process .section-title, #process .section-label { color: #fff; }
+    .process-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.1); }
+    .process-item { background: #111; padding: 40px 32px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .process-num { font-family: 'Noto Sans KR', serif; font-size: 40px; opacity: 0.2; line-height: 1; margin-bottom: 16px; }
+    .process-name { font-size: 14px; font-weight: 500; letter-spacing: 0.1em; margin-bottom: 10px; color: #fff; }
+    .process-desc { font-size: 12px; opacity: 0.45; line-height: 1.8; }
 
-    /* ── Portfolio References ── */
-    #portfolio {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-    }
-    .portfolio-item {
-      padding: 20px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      font-size: 13px;
-    }
+    /* ── Portfolio ── */
+    #portfolio { max-width: 1200px; margin: 0 auto; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .portfolio-item { padding: 20px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 13px; }
     .portfolio-item:nth-child(-n+4) { border-top: 1px solid rgba(0,0,0,0.08); }
     .portfolio-artist { font-weight: 500; margin-bottom: 4px; }
     .portfolio-type { font-size: 11px; opacity: 0.4; letter-spacing: 0.05em; }
 
     /* ── Contact ── */
-    #contact {
-      background: #f8f8f8;
-      padding: 100px 48px;
-    }
-    .contact-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
+    #contact { background: #f8f8f8; padding: 100px 48px; }
+    .contact-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
     .contact-links { margin-top: 40px; }
-    .contact-link {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      font-size: 14px;
-      transition: opacity 0.2s;
-    }
+    .contact-link { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-bottom: 1px solid rgba(0,0,0,0.08); font-size: 14px; transition: opacity 0.2s; }
     .contact-link:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
     .contact-link:hover { opacity: 0.6; }
     .contact-link-label { font-size: 10px; letter-spacing: 0.2em; opacity: 0.4; min-width: 72px; }
-    .contact-cta {
-      background: #111;
-      color: #fff;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .cta-title {
-      font-family: 'Noto Sans KR', serif;
-      font-size: 28px;
-      line-height: 1.4;
-      font-weight: 400;
-    }
-    .cta-desc {
-      font-size: 13px;
-      opacity: 0.6;
-      line-height: 1.8;
-    }
-    .cta-btn {
-      display: inline-block;
-      border: 1px solid rgba(255,255,255,0.4);
-      padding: 14px 28px;
-      font-size: 12px;
-      letter-spacing: 0.15em;
-      width: fit-content;
-      transition: background 0.2s, color 0.2s;
-    }
+    .contact-cta { background: #111; color: #fff; padding: 40px; display: flex; flex-direction: column; gap: 20px; }
+    .cta-title { font-family: 'Noto Sans KR', serif; font-size: 28px; line-height: 1.4; font-weight: 400; }
+    .cta-desc { font-size: 13px; opacity: 0.6; line-height: 1.8; }
+    .cta-btn { display: inline-block; border: 1px solid rgba(255,255,255,0.4); padding: 14px 28px; font-size: 12px; letter-spacing: 0.15em; width: fit-content; transition: background 0.2s, color 0.2s; }
     .cta-btn:hover { background: #fff; color: #111; }
 
     /* ── Footer ── */
-    footer {
-      padding: 40px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid rgba(0,0,0,0.08);
-      font-size: 11px;
-      opacity: 0.4;
-      letter-spacing: 0.08em;
-    }
+    footer { padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.08); font-size: 11px; opacity: 0.4; letter-spacing: 0.08em; }
 
     /* ── Responsive ── */
     @media (max-width: 900px) {
@@ -385,6 +215,7 @@
       .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-inner { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 8px; text-align: center; }
+      .hero-title img { width: 200px; } /* 모바일 로고 크기 축소 */
     }
   </style>
 </head>
@@ -403,195 +234,12 @@
   </nav>
 
   <section class="hero" id="home">
-    <h1 class="hero-title">
-      <img src="https://drive.google.com/file/d/13A3WioUAOh0RNdOv5s_BvnwmufTZW91Y/view?usp=drive_link" alt="MARON"> </h1>
+    <div class="hero-title">
+      <img src="images/maron_englogo.png" alt="MARON ART DOCUMENTATION STUDIO">
+    </div>
     <p class="hero-sub">예술 기록 스튜디오 &nbsp;·&nbsp; ART DOCUMENTATION STUDIO</p>
     <div class="hero-scroll">SCROLL</div>
   </section>
 
-  <section>
-    <div id="about">
-      <div class="about-text">
-        <p class="section-label">About</p>
-        <h2 class="section-title">예술가의 순간을<br/>기억하는 눈</h2>
-        <p>마론(MARON)은 예술가·작가와 함께 전시, 작품, 퍼포먼스를 기록하는 비주얼 레코딩 스튜디오입니다.</p>
-        <p>사진과 영상을 통해 예술의 현장을 섬세하게 포착하고, 작가의 언어와 감각을 화면에 담아냅니다. 기록 그 자체가 하나의 작품이 될 수 있다고 믿습니다.</p>
-        <div class="about-tags">
-          <span class="tag">전시 기록</span>
-          <span class="tag">작품 기록</span>
-          <span class="tag">아티스트 포트레이트</span>
-          <span class="tag">퍼포먼스 영상</span>
-          <span class="tag">아트 필름</span>
-          <span class="tag">후반 작업</span>
-        </div>
-      </div>
-      <div class="about-info">
-        <div class="info-row">
-          <span class="info-label">장비</span>
-          <span>Canon r6 mark ii/ <br/>RF 24–105mm / EF 100mm / 16–35mm <br/>Fomex E600<br/> 추가 장비 대여 사용</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">스킬</span>
-          <span>사진 편집 (Lightroom · Photoshop)<br/>영상 편집 (Premiere Pro · DaVinci Resolve)</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">지역</span>
-          <span>서울 · 수도권 중심 (지방 협의 가능)</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">언어</span>
-          <span>한국어 · English</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="services-inner">
-      <p class="section-label">Services</p>
-      <h2 class="section-title">제공 서비스</h2>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-num">01</div>
-          <div class="service-name">전시 기록 Exhibition Record</div>
-          <div class="service-desc">개인전·단체전·아트페어 현장을 전문적으로 촬영합니다. 전시 공간의 분위기와 작품의 디테일을 모두 담습니다.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-num">02</div>
-          <div class="service-name">작품 기록 Artwork Record</div>
-          <div class="service-desc">회화·조각·설치·미디어 작품의 정밀한 스틸 촬영. 원색 재현과 디테일 표현에 집중합니다.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-num">03</div>
-          <div class="service-name">아티스트 포트레이트 Artist Portrait</div>
-          <div class="service-desc">작가의 작업 현장과 개성을 담은 포트레이트. 포트폴리오·SNS·출판용으로 활용 가능합니다.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-num">04</div>
-          <div class="service-name">퍼포먼스 영상 Performance Video</div>
-          <div class="service-desc">퍼포먼스 아트·댄스·음악 공연의 현장 촬영 및 편집. 현장의 에너지를 생생하게 기록합니다.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-num">05</div>
-          <div class="service-name">아트 필름 Art Film</div>
-          <div class="service-desc">작가·작품·전시를 주제로 한 단편 다큐멘터리·인터뷰 영상 제작. 작가의 이야기를 영화적으로 담습니다.</div>
-        </div>
-        <div class="service-card">
-          <div class="service-num">06</div>
-          <div class="service-name">후반 작업 Post-Production</div>
-          <div class="service-desc">기존 촬영본의 색보정·편집·자막·사운드 디자인. 완성도 높은 최종 결과물을 만들어 드립니다.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div id="video">
-      <p class="section-label">Video Works</p>
-      <h2 class="section-title">영상 작업</h2>
-      <div class="video-grid">
-        <div>
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/PkuPs4dpmQE" title="팀 휴먼인프라 퍼포먼스" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-caption">팀 휴먼인프라 · 퍼포먼스 기록</p>
-        </div>
-        <div>
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/kMF9Xjf50Bw" title="임아진 퍼포먼스" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-caption">임아진 · 퍼포먼스 아트 기록</p>
-        </div>
-        <div>
-          <div class="video-wrap">
-            <iframe src="https://www.youtube.com/embed/ry9i_0AQh1w" title="조은미 전시 기록" allowfullscreen loading="lazy"></iframe>
-          </div>
-          <p class="video-caption">조은미 · 전시 기록</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="process">
-    <div class="process-inner">
-      <p class="section-label">Process</p>
-      <h2 class="section-title">작업 프로세스</h2>
-      <div class="process-list">
-        <div class="process-item">
-          <div class="process-num">01</div>
-          <div class="process-name">상담</div>
-          <div class="process-desc">카카오톡 또는 이메일로 초기 상담 및 일정 조율. 작업 규모와 방향성을 파악합니다.</div>
-        </div>
-        <div class="process-item">
-          <div class="process-num">02</div>
-          <div class="process-name">컨셉 회의</div>
-          <div class="process-desc">작품 방향성과 촬영 콘셉트 논의, 레퍼런스 공유. 작가의 의도를 깊이 이해합니다.</div>
-        </div>
-        <div class="process-item">
-          <div class="process-num">03</div>
-          <div class="process-name">촬영</div>
-          <div class="process-desc">현장 방문 및 작품·전시·퍼포먼스 촬영. 최적의 빛과 구도로 기록합니다.</div>
-        </div>
-        <div class="process-item">
-          <div class="process-num">04</div>
-          <div class="process-name">편집</div>
-          <div class="process-desc">색보정·사운드·자막 등 후반 작업. 작가의 세계관에 맞게 마무리합니다.</div>
-        </div>
-        <div class="process-item">
-          <div class="process-num">05</div>
-          <div class="process-name">납품</div>
-          <div class="process-desc">고해상도 원본 + 웹용 파일 전달. 촬영 후 통상 5–10일 이내 완료합니다.</div>
-        </div>
-        <div class="process-item">
-          <div class="process-num">06</div>
-          <div class="process-name">사후관리</div>
-          <div class="process-desc">추가 수정 요청 및 피드백 반영. 1회 무상 수정이 포함되어 있습니다.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="contact-inner">
-      <div>
-        <p class="section-label">Contact</p>
-        <h2 class="section-title">함께 기록을<br/>시작해요</h2>
-        <div class="contact-links">
-          <a class="contact-link" href="tel:010-8547-5225">
-            <span class="contact-link-label">PHONE</span>
-            <span>010-8547-5225</span>
-          </a>
-          <a class="contact-link" href="mailto:maronpoto321@gmail.com">
-            <span class="contact-link-label">EMAIL</span>
-            <span>maronpoto321@gmail.com</span>
-          </a>
-          <a class="contact-link" href="https://instagram.com/maron_poto" target="_blank" rel="noopener">
-            <span class="contact-link-label">INSTAGRAM</span>
-            <span>@maron_poto</span>
-          </a>
-          <a class="contact-link" href="https://marooso.co.kr/maron" target="_blank" rel="noopener">
-            <span class="contact-link-label">WEB</span>
-            <span>marooso.co.kr/maron</span>
-          </a>
-        </div>
-      </div>
-      <div class="contact-cta">
-        <div class="cta-title">촬영 문의는<br/>언제든 환영합니다</div>
-        <div class="cta-desc">
-          전시 일정, 작업 규모, 예산에 관계없이 편하게 연락 주세요.<br/>
-          첫 상담은 무료이며, 작가의 필요에 맞게 유연하게 협의합니다.
-        </div>
-        <a class="cta-btn" href="mailto:maronpoto321@gmail.com">문의하기 →</a>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <span>© 2025 MARON · 이서영</span>
-    <span>Art Documentation Studio · Seoul</span>
-  </footer>
-
-</body>
+  </body>
 </html>
-
-```
